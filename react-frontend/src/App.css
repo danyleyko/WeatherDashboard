@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+.weather-display {
+  margin-top: 20px;
+  padding: 20px;
+  border: 5px solid #ccc;
+  display: inline-block;
+}
+
+.logo-svg {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 115px;
+    height: 55px;
+    background-image: url('logo.svg');
+    background-size: cover;
+}
