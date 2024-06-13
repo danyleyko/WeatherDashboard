@@ -1,17 +1,70 @@
 import './WeatherDisplay.css';
 import { Weather } from './types';
+import { getTranslatedCountryName } from './utils';
 
-function WeatherDisplay({ weather }: { weather: Weather }): JSX.Element {
+const WeatherDisplay: React.FC<{ weather: Weather, lang: string }> = ({ weather, lang }) => 
+{
+  // Translating menu labels
+  const translateLabel = (city: string) => {
+    switch (city) {
+      case 'Temperature':
+        return lang === 'fr' ? 'Température' :
+               lang === 'es' ? 'Temperatura' :
+               lang === 'de' ? 'Temperatur' :
+               lang === 'ua' ? 'Температура' :
+               lang === 'ru' ? 'Температура' :
+               lang === 'cz' ? 'Teplota' :
+               'Temperature';
+      case 'Humidity':
+        return lang === 'fr' ? 'Humidité' :
+               lang === 'es' ? 'Humedad' :
+               lang === 'de' ? 'Luftfeuchtigkeit' :
+               lang === 'ua' ? 'Вологість' :
+               lang === 'ru' ? 'Влажность' :
+               lang === 'cz' ? 'Vlhkost' :
+               'Humidity';
+      case 'Wind Speed':
+        return lang === 'fr' ? 'Vitesse du vent' :
+               lang === 'es' ? 'Velocidad del viento' :
+               lang === 'de' ? 'Windgeschwindigkeit' :
+               lang === 'ua' ? 'Швидкість вітру' :
+               lang === 'ru' ? 'Скорость ветра' :
+               lang === 'cz' ? 'Rychlost větru' :
+               'Wind Speed';
+      case 'Condition':
+        return lang === 'fr' ? 'Condition' :
+               lang === 'es' ? 'Condición' :
+               lang === 'de' ? 'Bedingung' :
+               lang === 'ua' ? 'Стан' :
+               lang === 'ru' ? 'Состояние' :
+               lang === 'cz' ? 'Stav' :
+               'Condition';
+      case 'Country':
+        return lang === 'fr' ? 'Pays' :
+               lang === 'es' ? 'País' :
+               lang === 'de' ? 'Land' :
+               lang === 'ua' ? 'Країна' :
+               lang === 'ru' ? 'Страна' :
+               lang === 'cz' ? 'Země' :
+               'Country';
+      default:
+        return city;
+    }
+  };
+
   return (
     <div className="weather-display">
+
       <h1>{weather.city}</h1>
-      <p>Temperature: {weather.temperature}°C</p>
-      <p>Humidity: {weather.humidity}%</p>
-      <p>Wind Speed: {weather.windSpeed} m/s</p>
-      <p>Condition: {weather.condition}</p>
-      <p>Country: {weather.country}</p>
+
+      <p>{translateLabel('Temperature')}: {weather.temperature}°C</p>
+      <p>{translateLabel('Humidity')}: {weather.humidity}%</p>
+      <p>{translateLabel('Wind Speed')}: {weather.windSpeed} m/s</p>
+      <p>{translateLabel('Condition')}: {weather.condition}</p>
+      <p>{translateLabel('Country')}: {getTranslatedCountryName(weather.country, lang)}</p>
+
     </div>
   );
-}
+};
 
 export default WeatherDisplay;

@@ -6,14 +6,5 @@ export interface Weather
     windSpeed: number;
     condition: string;
     country: string;
+    lang: string;
 }
-
-export interface WeatherData {
-    city: string;
-    temperature: number;
-    humidity: number;
-    windSpeed: number;
-    condition: string;
-    country: string;
-  }
-  

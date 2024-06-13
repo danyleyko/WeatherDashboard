@@ -5,6 +5,7 @@
 #include <vector>
 #include <curl/curl.h>
 #include <memory>
+#include "main.hpp"
 
 /**
  * @brief Callback function for writing received data into a string buffer.
@@ -26,24 +27,6 @@ static size_t write_callback(char *buffer, size_t size, size_t nmemb, void *user
 }
 
 /**
- * @brief Custom deleter for std::unique_ptr<CURL>.
- * 
- * This struct provides a custom deleter for std::unique_ptr to automatically clean up a CURL handle.
- */
-struct CURLDeleter
-{
-    /**
-     * @brief Operator for cleaning up a CURL handle.
-     * 
-     * @param curl Pointer to the CURL handle to be cleaned up.
-     */
-    void operator()(CURL *curl)
-    {
-        curl_easy_cleanup(curl);
-    }
-};
-
-/**
  * @brief Utility function to fetch weather data from OpenWeatherMap API.
  * 
  * This function makes a HTTP GET request to the OpenWeatherMap API to fetch weather data for a given city.
@@ -51,7 +34,7 @@ struct CURLDeleter
  * @param city The name of the city for which weather data is requested.
  * @return A string containing the JSON response from the API.
  */
-std::string fetch_weather_data(const std::string &city)
+std::string fetch_weather_data(const std::string &city, const std::string &lang)
 {
     const std::string api_key = std::getenv("OPENWEATHERMAP_API_KEY");
 
@@ -60,9 +43,10 @@ std::string fetch_weather_data(const std::string &city)
         return "";
     }
 
-    const std::string api_url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + api_key;
+    const std::string api_url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + api_key + "&lang=" + lang;
 
     std::cout << "Fetching weather data for city: " << city << std::endl;
+    std::cout << "Language request: " << lang << std::endl;
 
     std::unique_ptr<CURL, CURLDeleter> curl(curl_easy_init());
     CURLcode res;
@@ -131,8 +115,9 @@ int main()
         }
 
         std::string city = req.get_param_value("city");
+        std::string lang = req.get_param_value("lang");
 
-        std::string weather_data = fetch_weather_data(city);
+        std::string weather_data = fetch_weather_data(city, lang);
         if (weather_data.empty()) 
         {
             res.status = 500;
