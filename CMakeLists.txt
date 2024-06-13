@@ -14,7 +14,7 @@ add_library(nlohmann_json INTERFACE)
 target_include_directories(nlohmann_json INTERFACE external_libs/nlohmann)
 
 # Add the executable
-add_executable(Weather_Dashboard main.cpp)
+add_executable(Weather_Dashboard cpp-backend/main.cpp)
 
 # Link libraries
 target_link_libraries(Weather_Dashboard
