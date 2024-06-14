@@ -1,26 +1,53 @@
 .App {
   font-family: 'Abel', sans-serif;
+  background-color: #f0f2f5;
   text-align: center;
   padding: 20px;
 }
 
-input {
-  margin-right: 10px;
-}
-
-.weather-display {
-  margin-top: 20px;
-  padding: 20px;
-  border: 5px solid #ccc;
-  display: inline-block;
-}
-
 .logo-svg {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 115px;
-    height: 55px;
-    background-image: url('logo.svg');
-    background-size: cover;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 115px;
+  height: 55px;
+  background-image: url('logo.svg');
+  background-size: cover;
 }
+
+.language-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px 6px 6px 6px;
+}
+
+.search-input {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 6px 6px 6px 6px;
+}
+
+.search-button {
+  padding: 10px;
+  background-color: #3d9970;
+  color: white;
+  border: none;
+  border-radius: 6px 6px 6px 6px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+  .search-input {
+      width: 60%;
+  }
+
+  .search-button {
+      padding: 8px;
+  }
+}
+  

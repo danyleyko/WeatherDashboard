@@ -1,7 +1,22 @@
 .weather-display {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    display: inline-block;
-  }
-  
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.weather-info {
+  text-align: center;
+}
+
+.weather-info h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.weather-info p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}

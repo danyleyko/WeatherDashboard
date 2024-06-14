@@ -55,13 +55,13 @@ const WeatherDisplay: React.FC<{ weather: Weather, lang: string }> = ({ weather,
   return (
     <div className="weather-display">
 
-      <h1>{weather.city}</h1>
+      <h1 className="weather-info">{weather.city}</h1>
 
-      <p>{translateLabel('Temperature')}: {weather.temperature}°C</p>
-      <p>{translateLabel('Humidity')}: {weather.humidity}%</p>
-      <p>{translateLabel('Wind Speed')}: {weather.windSpeed} m/s</p>
-      <p>{translateLabel('Condition')}: {weather.condition}</p>
-      <p>{translateLabel('Country')}: {getTranslatedCountryName(weather.country, lang)}</p>
+      <p className="weather-info">{translateLabel('Temperature')}: {weather.temperature}°C</p>
+      <p className="weather-info">{translateLabel('Humidity')}: {weather.humidity}%</p>
+      <p className="weather-info">{translateLabel('Wind Speed')}: {weather.windSpeed} m/s</p>
+      <p className="weather-info">{translateLabel('Condition')}: {weather.condition}</p>
+      <p className="weather-info">{translateLabel('Country')}: {getTranslatedCountryName(weather.country, lang)}</p>
 
     </div>
   );
