@@ -14,8 +14,8 @@
 #include <vector>
 
 #include <grpcpp/grpcpp.h>
-#include "cpp-backend/weather.grpc.pb.h"
-#include "cpp-backend/weather.pb.h"
+#include "weather.grpc.pb.h"
+#include "weather.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
