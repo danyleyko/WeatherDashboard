@@ -1,5 +1,5 @@
 import React from 'react';
-import WeatherClient from './WeatherClient';
+import WeatherClient from './pages/WeatherClient';
 
 /**
  * App component.

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./WeatherClient.css";
-import WeatherDisplay from "./ui/WeatherDisplay";
-import { WeatherServiceClient } from "./proto/WeatherServiceClientPb";
-import { WeatherRequest, WeatherResponse } from "./proto/weather_pb";
+import WeatherDisplay from "./WeatherDisplay";
+import { WeatherServiceClient } from "../proto/WeatherServiceClientPb";
+import { WeatherRequest, WeatherResponse } from "../proto/weather_pb";
 
 /**
  * WeatherClient component.

@@ -11,7 +11,7 @@
     transform: translateX(-50%);
     width: 115px;
     height: 55px;
-    background-image: url('./ui/logo.svg');
+    background-image: url('../ui/logo.svg');
     background-size: cover;
 }
 
