@@ -1,0 +1,53 @@
+\hypertarget{md_other_installation_autotoc_md12}{}\doxysubsection{Backend}\label{md_other_installation_autotoc_md12}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Setup and Build}}
+\begin{DoxyItemize}
+\item Navigate to {\ttfamily ./cpp-\/backend} and create a {\ttfamily build} directory\+: \`{}\`{}\`{} mkdir build cd build cmake .. make \`{}\`{}{\ttfamily }
+\item {\ttfamily This will compile}\mbox{\hyperlink{server_8cpp}{server.\+cpp}}\`{} into an executable.
+\end{DoxyItemize}
+\item {\bfseries{Run Server}}
+\begin{DoxyItemize}
+\item Start the backend server\+: \`{}\`{}\`{} ./server \`{}\`{}\`{}
+\item This command will launch the GRPC backend service.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_other_installation_autotoc_md13}{}\doxysubsection{Proxy}\label{md_other_installation_autotoc_md13}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Install and Run Envoy}}
+\begin{DoxyItemize}
+\item Download and install Envoy from \href{https://www.envoyproxy.io/docs/envoy/latest/start/install}{\texttt{ Envoy\textquotesingle{}s official site}}.
+\end{DoxyItemize}
+\item {\bfseries{Configure and Start}}
+\begin{DoxyItemize}
+\item Navigate to {\ttfamily ./react-\/fronted} and start Envoy with the provided configuration file ({\ttfamily envoy.\+yaml})\+: \`{}\`{}\`{} envoy -\/c envoy.\+yaml \`{}\`{}\`{}
+\item This command will start the Envoy proxy configured to bridge between the frontend and backend via g\+RPC-\/\+Web.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_other_installation_autotoc_md14}{}\doxysubsection{Frontend}\label{md_other_installation_autotoc_md14}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Install Dependencies}}
+\begin{DoxyItemize}
+\item Ensure you have Node.\+js and npm installed. If not, download Node.\+js from \href{https://www.npmjs.com/package/npm}{\texttt{ npm\textquotesingle{}s official site}}.
+\end{DoxyItemize}
+\item {\bfseries{Install Packages}}
+\begin{DoxyItemize}
+\item Navigate to {\ttfamily ./react-\/fronted} and install required packages\+: \`{}\`{}\`{} npm install \`{}\`{}{\ttfamily }
+\item {\ttfamily This command installs all necessary dependencies specified in}package.\+json\`{}.
+\end{DoxyItemize}
+\item {\bfseries{Run Frontend}}
+\begin{DoxyItemize}
+\item Start the frontend server\+: \`{}\`{}\`{} npm start \`{}\`{}\`{}
+\item This command compiles Type\+Script and launches the React development server.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_other_installation_autotoc_md15}{}\doxysubsection{Optional}\label{md_other_installation_autotoc_md15}
+
+\begin{DoxyItemize}
+\item {\bfseries{Generate Proto Files}}
+\begin{DoxyItemize}
+\item To regenerate proto files if needed\+: \`{}\`{}\`{} npm run build \`{}\`{}\`{}
+\item This command rebuilds Type\+Script files from the proto definitions.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_other_installation_autotoc_md16}{}\doxysection{Contributing}\label{md_other_installation_autotoc_md16}
+Feel free to fork this project and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.\hypertarget{md_other_installation_autotoc_md17}{}\doxysection{License}\label{md_other_installation_autotoc_md17}
+\mbox{[}MIT\mbox{]}(LICENSE) © Kirill Danyleyko 

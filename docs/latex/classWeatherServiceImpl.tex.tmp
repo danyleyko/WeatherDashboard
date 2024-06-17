@@ -1,0 +1,61 @@
+\hypertarget{classWeatherServiceImpl}{}\doxysection{Weather\+Service\+Impl Class Reference}
+\label{classWeatherServiceImpl}\index{WeatherServiceImpl@{WeatherServiceImpl}}
+
+
+Implementation of the Weather\+Service g\+RPC service.  
+
+
+
+
+{\ttfamily \#include $<$server.\+hpp$>$}
+
+
+
+Inheritance diagram for Weather\+Service\+Impl\+:
+% FIG 0
+
+
+Collaboration diagram for Weather\+Service\+Impl\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Status \mbox{\hyperlink{classWeatherServiceImpl_aa1a2d1d0006575b2084221cd281abf66}{Get\+Weather}} (Server\+Context $\ast$context, const Weather\+Request $\ast$request, Weather\+Response $\ast$response) override
+\begin{DoxyCompactList}\small\item\em Handles Get\+Weather requests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the Weather\+Service g\+RPC service. 
+
+This class implements the Weather\+Service defined in the g\+RPC proto file. It provides functionality to handle weather requests and fetch weather data. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWeatherServiceImpl_aa1a2d1d0006575b2084221cd281abf66}\label{classWeatherServiceImpl_aa1a2d1d0006575b2084221cd281abf66}} 
+\index{WeatherServiceImpl@{WeatherServiceImpl}!GetWeather@{GetWeather}}
+\index{GetWeather@{GetWeather}!WeatherServiceImpl@{WeatherServiceImpl}}
+\doxysubsubsection{\texorpdfstring{GetWeather()}{GetWeather()}}
+{\footnotesize\ttfamily Status Weather\+Service\+Impl\+::\+Get\+Weather (\begin{DoxyParamCaption}\item[{Server\+Context $\ast$}]{context,  }\item[{const Weather\+Request $\ast$}]{request,  }\item[{Weather\+Response $\ast$}]{response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+Handles Get\+Weather requests. 
+
+This function processes Get\+Weather requests by fetching weather data for the requested city and setting the response with the retrieved weather information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The context for the server-\/side RPC. \\
+\hline
+{\em request} & The weather request containing the city and language. \\
+\hline
+{\em response} & The weather response to be populated with the weather data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status The status of the RPC (OK or error). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+cpp-\/backend/\mbox{\hyperlink{server_8hpp}{server.\+hpp}}\end{DoxyCompactItemize}

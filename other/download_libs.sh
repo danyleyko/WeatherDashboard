@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the directory for external libraries
-LIB_DIR="../src/external_libs"
+LIB_DIR="../cpp-backend/external-libs"
 
 # Create the directory if it doesn't exist
 mkdir -p $LIB_DIR
