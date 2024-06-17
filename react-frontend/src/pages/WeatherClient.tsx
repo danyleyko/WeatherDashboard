@@ -6,64 +6,62 @@ import { WeatherRequest, WeatherResponse } from "../proto/weather_pb";
 
 /**
  * WeatherClient component.
- * 
+ *
  * This component displays a real-time weather dashboard that allows users to search for weather
  * information of a city in various languages using a gRPC service.
  */
-const WeatherClient: React.FC = () => {
-  // State variables
+const WeatherClient: React.FC = () => 
+{
   const [weatherData, setWeatherData] = useState<WeatherResponse.AsObject | null>(null);
   const [lang, setLang] = useState<string>("en"); // Default language is English
-  const [city, setCity] = useState<string>("");   // State for user-entered city name
-  const [error, setError] = useState<string>(""); // State for error messages
+  const [city, setCity] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   // gRPC client setup
   const client = new WeatherServiceClient("http://localhost:8080");
 
   /**
    * Fetches weather data from the server.
-   * 
+   *
    * @param city The city name for which weather data is requested.
    * @param lang The language code for the weather information (e.g., 'en' for English).
    */
-  const fetchWeatherData = async (city: string, lang: string) => {
+  const fetchWeatherData = async (city: string, lang: string) => 
+  {
     console.log(`Searching for weather in "${city}" with language "${lang}"`);
     const request = new WeatherRequest();
     request.setCity(city);
     request.setLang(lang);
 
-    try {
-      // Headers for the request (optional example headers)
-      const requestHeaders = {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'keep-alive,user-agent,cache-control,content-type,content-transfer-encoding,authorization,grpc-timeout,x-user-agent',
-      };
-      
-      // Call the gRPC service method to get weather data
-      const response = await client.getWeather(request, requestHeaders);
-      
-      // Update state with received weather data
-      setWeatherData(response.toObject());
-      setError(""); // Clear any previous error messages
+    try 
+    {
+      const response = await client.getWeather(request);
 
-    } catch (error) {
-      // Handle errors from the gRPC call
+      setWeatherData(response.toObject());
+      setError("");
+    } 
+    catch (error) 
+    {
       const Error = error as any;
       setError(Error.message);
-      setWeatherData(null); // Reset weather data on error
+      setWeatherData(null);
     }
+
   };
 
   /**
    * Handles the search button click event.
-   * 
+   *
    * Initiates fetching weather data for the entered city and selected language.
    */
-  const handleSearch = () => {
-    if (city) {
+  const handleSearch = () => 
+  {
+    if (city) 
+    {
       fetchWeatherData(city, lang);
-    } else {
+    } 
+    else 
+    {
       setError("Please enter a city name."); // Show error if city name is empty
     }
   };
@@ -73,17 +71,20 @@ const WeatherClient: React.FC = () => {
       <div className="logo-svg"></div>
 
       <div>
+
         <h1>Real-time weather dashboard using API</h1>
+        
       </div>
 
       {/* Language selector and city input */}
       <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
+
         <select
           className="language-select"
           value={lang}
           style={{ marginRight: 15 }}
-          onChange={(e) => setLang(e.target.value)}
-        >
+          onChange={(e) => setLang(e.target.value)}>
+
           <option value="en">English</option>
           <option value="fr">French</option>
           <option value="es">Spanish</option>
@@ -91,6 +92,7 @@ const WeatherClient: React.FC = () => {
           <option value="ua">Ukrainian</option>
           <option value="ru">Russian</option>
           <option value="cz">Czech</option>
+
         </select>
 
         <input
@@ -98,16 +100,16 @@ const WeatherClient: React.FC = () => {
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          placeholder="Enter city name"
-        />
+          placeholder="Enter city name"/>
 
         <button
           className="search-button"
           onClick={handleSearch}
-          style={{ marginLeft: 10 }}
-        >
+          style={{ marginLeft: 10 }}>
+
           Search
         </button>
+        
       </div>
 
       {/* Display error message if any */}

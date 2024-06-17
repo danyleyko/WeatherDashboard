@@ -7,7 +7,8 @@ import WeatherClient from './pages/WeatherClient';
  * This component serves as the entry point of the application. It renders the WeatherClient
  * component which displays a real-time weather dashboard.
  */
-const App: React.FC = () => {
+const App: React.FC = () => 
+{
   return (
     <div className="App">
       <WeatherClient />
